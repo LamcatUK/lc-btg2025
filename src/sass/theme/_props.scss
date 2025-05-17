@@ -1,0 +1,71 @@
+$col-primary: #5d7f9c;
+$col-dark: #666666;
+$col-darkest: #4a4a4a;
+$col-light: #f2f2f2;
+
+:root {
+    /* Colours */
+
+    --col-dark: #0f0f0f;
+
+    /* PRIMARY COLOURS */
+    --hsl-plum: 325 40% 21%; // deep plum
+    --col-plum: hsl(var(--hsl-plum));
+
+    --hsl-rose: 342 41% 76%; // soft rose
+    --col-rose: hsl(var(--hsl-rose));
+
+    --hsl-cream: 38 42% 96%; // warm cream
+    --col-cream: hsl(var(--hsl-cream));
+
+    --hsl-olive: 42 4% 36%; // olive grey
+    --col-olive: hsl(var(--hsl-olive));
+
+    --hsl-gold: 39 87% 59%; // amber gold
+    --col-gold: hsl(var(--hsl-gold));
+
+    /* Font Sizes */
+
+    --base-font-size: 16px;
+
+    --fs-300: 0.8rem; // 16px / 20 - nav/small text
+    --fs-350: 0.9rem; // 18px / 20 - fine print or labels
+    --fs-400: 1rem; // 20px / 20 - body copy
+    --fs-450: clamp(1.1rem, 0.6vw + 0.9rem, 1.25rem); // 22–25px / 20 - large body or subhead
+    --fs-500: clamp(1.25rem, 1vw + 0.8rem, 1.55rem); // ~31px / 20 - h5
+    --fs-600: clamp(1.6rem, 1.2vw + 1rem, 1.95rem); // ~39px / 20 - h4
+    --fs-700: clamp(2rem, 1.4vw + 1.2rem, 2.45rem); // ~49px / 20 - h3
+    --fs-800: clamp(2.5rem, 1.6vw + 1.5rem, 3.05rem); // ~61px / 20 - h2
+    --fs-900: clamp(3.2rem, 2vw + 1.8rem, 3.8rem); // ~76px / 20 - h1
+
+    /* Font Families */
+
+    --ff-body: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --ff-heading: 'Amarante', Georgia, 'Times New Roman', serif;
+    --ff-fa: 'Font Awesome 6 Pro';
+
+    /* Font Weights */
+
+    --fw-400: 400; // regular
+    --fw-500: 500; // medium (buttons, menu items)
+    --fw-700: 700; // bold (headings)
+
+    /* Effects */
+    --transition: 250ms ease-out;
+
+    /* Site General */
+    --h-top: 83px;
+    --h-top-desktop: 83px;
+
+    --border-radius: 0.5rem;
+
+    --shadow-sm: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    --shadow-lg: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 6rem;
+}
