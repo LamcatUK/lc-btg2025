@@ -220,7 +220,7 @@ session_start();
                 </div -->
 
                 <div class="col-6 order-2 order-lg-3 d-flex justify-content-end align-items-center">
-                    <a href="/register/" class="button button--sm button-outline">Register for Updates</a>
+                    <a href="/#register" class="button button--sm button-outline">Register for Updates</a>
                 </div>
             </div>
         </div>
