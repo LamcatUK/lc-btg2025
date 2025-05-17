@@ -28,7 +28,7 @@ if ( ! $q->have_posts() ) {
 				$q->the_post();
 				?>
 				<div class="col-sm-6 col-lg-3" data-aos="fade" data-aos-delay="<?= esc_attr( $c * 100 ); ?>">
-					<a href="<?= esc_url( get_permalink() ); ?>" class="teaser__link">
+					<a href="" class="teaser__link">
 						<div class="teaser__image">
 							<?= wp_get_attachment_image( get_post_thumbnail_id(), 'large', false, array( 'class' => 'img-fluid' ) ); ?>
 						</div>
