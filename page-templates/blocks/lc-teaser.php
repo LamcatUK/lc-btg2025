@@ -28,7 +28,7 @@ if ( ! $q->have_posts() ) {
 				$q->the_post();
 				?>
 				<div class="col-sm-6 col-lg-3" data-aos="fade" data-aos-delay="<?= esc_attr( $c * 100 ); ?>">
-					<a href="" class="teaser__link">
+					<div class="teaser__link">
 						<div class="teaser__image">
 							<?= wp_get_attachment_image( get_post_thumbnail_id(), 'large', false, array( 'class' => 'img-fluid' ) ); ?>
 						</div>
@@ -37,7 +37,7 @@ if ( ! $q->have_posts() ) {
 							<div class="teaser__subtitle"><?= esc_html( get_field( 'subtitle', get_the_ID() ) ); ?></div>
 							<p class="teaser__excerpt"><?= esc_html( get_field( 'excerpt', get_the_ID() ) ); ?></p>
 						</div>
-					</a>
+					</div>
 				</div>
 				<?php
 				++$c;
