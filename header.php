@@ -192,13 +192,13 @@ session_start();
     <nav id="main-nav" class="navbar navbar-expand-lg pb-0 position-relative" aria-labelledby="main-nav-label">
         <div class="container-xl">
             <div class="row w-100 gx-4">
-                <div class="col-2 order-1">
+                <div class="col-6 order-1">
                     <div class="logo-container">
                         <a href="/" class="logo" aria-label="Behind The Grape Homepage"></a>
                     </div>
                 </div>
                 
-                <div class="col-lg-6 order-3 order-lg-2">
+                <!-- div class="col-lg-6 order-3 order-lg-2">
                     <div id="navbarContent" class="collapse navbar-collapse">
                         <div class="w-100 d-flex flex-column justify-content-lg-between align-items-lg-center" style="row-gap:1rem">
                             <div class="contact-info d-none d-lg-flex gap-3 w-100 justify-content-center">
@@ -217,20 +217,10 @@ session_start();
                             ?>
                         </div>
                     </div>
-                </div>
+                </div -->
 
-                <div class="col-4 order-2 order-lg-3 d-flex justify-content-end align-items-center">
-                    <div class="d-none d-lg-block">
-                        <a href="/register/" class="button button--sm button-outline">Register for Updates</a>
-                    </div>
-
-                    <!-- Mobile Toggle -->
-                    <button class="navbar-toggler d-lg-none me-0" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <i class="fas fa-bars"></i>
-                    </button>
-
+                <div class="col-6 order-2 order-lg-3 d-flex justify-content-end align-items-center">
+                    <a href="/register/" class="button button--sm button-outline">Register for Updates</a>
                 </div>
             </div>
         </div>
