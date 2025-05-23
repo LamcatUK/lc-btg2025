@@ -4,7 +4,7 @@
  *
  * This file contains theme-specific functions and customizations for the Valewood Bathrooms theme.
  *
- * @package lc-btg2025
+ * @package lc-saialupack2025
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -12,34 +12,25 @@ defined( 'ABSPATH' ) || exit;
 require_once LC_THEME_DIR . '/inc/lc-utility.php';
 require_once LC_THEME_DIR . '/inc/lc-blocks.php';
 require_once LC_THEME_DIR . '/inc/lc-news.php';
-// require_once LC_THEME_DIR . '/inc/lc-posttypes.php';
-// require_once LC_THEME_DIR . '/inc/lc-taxonomies.php';
+require_once LC_THEME_DIR . '/inc/lc-posttypes.php';
+require_once LC_THEME_DIR . '/inc/lc-taxonomies.php';
+
+/* require_once LC_THEME_DIR . '/inc/cli-import-products.php'; */
+
 
 if ( ! defined( 'LC_COLOUR_PALETTE' ) ) {
 	define(
         'LC_COLOUR_PALETTE',
         array(
-            'white'         => '#ffffff',
-            'grey-100'      => '#efefef',
-            'grey-200'      => '#d9d9d9',
-            'grey-300'      => '#999999',
-            'grey-400'      => '#666666',
-            // option 1 - sage/sand.
-            // 'primary-100'   => '#eff1ec',
-            // 'primary-300'   => '#cdd3c3',
-            // 'primary-400'   => '#a2ac94',
-            // 'primary-500'   => '#4c5b4d',
-            // 'secondary-100' => '#f5f1e6',
-            // 'secondary-300' => '#e8e0cd',
-            // 'secondary-400' => '#d8cdb6',
-            // option 2 - navy/ivory.
-            'primary-100'   => '#e9edf0',
-            'primary-300'   => '#90a3b5',
-            'primary-400'   => '#50667d',
-            'primary-500'   => '#2a3a4d',
-            'secondary-100' => '#fbf9f1',
-            'secondary-300' => '#f6f1e4',
-            'secondary-400' => '#ede2c8',
+            'black'     => '#0f0f0f',
+            'white'     => '#ffffff',
+            'green-100' => '#d3ebe5', // very light and soft green
+            'green-400' => '#45b8ac', // original, cool but balanced
+            'green-700' => '#277b6c', // heading toward forest
+            'green-900' => '#173f3d', // original dark, cool green
+            'coral-400' => '#ff6b5e',
+            'grey-100'  => '#efefef',
+            'grey-400'  => '#d0d3d4',
         )
     );
 }
@@ -106,9 +97,9 @@ function widgets_init() {
 
     register_nav_menus(
 		array(
-			'primary_nav'  => __( 'Primary Nav', 'lc-btg2025' ),
-			'footer_menu1' => __( 'Footer Nav 1', 'lc-btg2025' ),
-			'footer_menu2' => __( 'Footer Nav 2', 'lc-btg2025' ),
+			'primary_nav'  => __( 'Primary Nav', 'lc-saialupack2025' ),
+			'footer_menu1' => __( 'Footer Nav 1', 'lc-saialupack2025' ),
+			'footer_menu2' => __( 'Footer Nav 2', 'lc-saialupack2025' ),
 	    )
 	);
 
@@ -483,3 +474,48 @@ add_filter(
     10,
     2
 );
+
+function cb_show_all_products_on_archive( $query ) {
+	if (
+		!is_admin() &&
+		$query->is_main_query() &&
+		is_post_type_archive('product')
+	) {
+		$query->set('posts_per_page', -1);
+	}
+}
+add_action('pre_get_posts', 'cb_show_all_products_on_archive');
+
+function enqueue_nouislider_assets() {
+    if (is_post_type_archive('product')) {
+        wp_enqueue_style('nouislider', 'https://cdn.jsdelivr.net/npm/nouislider@15.8.1/dist/nouislider.min.css');
+        wp_enqueue_script('nouislider', 'https://cdn.jsdelivr.net/npm/nouislider@15.8.1/dist/nouislider.min.js', [], null, true);
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_nouislider_assets');
+
+
+// add_action('init', function() {
+// 	if (!is_admin()) return;
+
+// 	$products = get_posts([
+// 		'post_type' => 'product',
+// 		'posts_per_page' => -1,
+// 		'fields' => 'ids'
+// 	]);
+
+// 	foreach ($products as $post_id) {
+// 		$old = get_field('base_B', $post_id);
+// 		if (!empty($old)) {
+// 			update_field('base_b', $old, $post_id);
+// 		}
+// 	}
+// });
+
+
+function dimensions($a, $b) {
+    if ( $a === $b ) {
+        return $a . ' x ' . $b;
+    }
+    return $a;
+}

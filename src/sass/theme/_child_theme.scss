@@ -72,14 +72,16 @@ main {
     z-index: 1000;
 }
 
-.breadcrumbs {
+.yoast-breadcrumbs {
+    @extend .container;
+    padding-block: 2rem;
     font-size: var(--fs-300);
     a {
         text-decoration: none;
     }
 }
 
-.container-xl .container-xl {
+.container .container {
     padding-inline: 0;
 }
 
@@ -130,10 +132,6 @@ main {
 
 .wp-block-list li {
     margin-bottom: 1em;
-}
-
-.form-control {
-    border-radius: 0;
 }
 
 .wp-block-search__label {
@@ -195,4 +193,61 @@ for (; i < all.length; i++) {
     font-family: var(--ff-body);
     font-size: var(--fs-400);
     margin-bottom: 1rem;
+}
+
+// products archive filters
+/* Match Bootstrap 5 .form-range appearance */
+.noUi-target {
+    border: none;
+    box-shadow: none;
+    background-color: #dee2e6; /* Bootstrap input background */
+    height: 0.5rem; /* Match Bootstrap track height */
+    border-radius: 0.25rem;
+}
+
+.noUi-connect {
+    background-color: var(--col-green-400); /* Bootstrap primary */
+}
+
+.noUi-horizontal .noUi-handle {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    top: -0.25rem;
+    background: #fff;
+    border: 1px solid #ced4da;
+    box-shadow: var(--shadow-sm);
+    cursor: grab;
+}
+
+.noUi-horizontal .noUi-handle:before,
+.noUi-horizontal .noUi-handle:after {
+    display: none; /* Remove default handle bars */
+}
+
+.noUi-tooltip {
+    background: var(--col-light);
+    color: var(--col-dark);
+    border-radius: 0.2rem;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--col-dark);
+}
+
+.product-card a {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    text-decoration: none;
+    color: var(--col-dark);
+    box-shadow: var(--shadow-lg);
+    transition:
+        box-shadow var(--transition),
+        transform var(--transition);
+    &:hover {
+        box-shadow: var(--shadow-sm);
+        transform: translateY(2px);
+    }
+    li {
+        font-weight: 400;
+    }
 }

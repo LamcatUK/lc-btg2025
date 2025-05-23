@@ -2,17 +2,15 @@
 :root {
   /* Colours */
   --col-dark: #0f0f0f;
+  --col-light: #ffffff;
   /* PRIMARY COLOURS */
-  --hsl-plum: 325 40% 21%;
-  --col-plum: hsl(var(--hsl-plum));
-  --hsl-rose: 342 41% 76%;
-  --col-rose: hsl(var(--hsl-rose));
-  --hsl-cream: 38 42% 96%;
-  --col-cream: hsl(var(--hsl-cream));
-  --hsl-olive: 42 4% 36%;
-  --col-olive: hsl(var(--hsl-olive));
-  --hsl-gold: 39 87% 59%;
-  --col-gold: hsl(var(--hsl-gold));
+  --col-green-100: #d3ebe5;
+  --col-green-400: #45b8ac;
+  --col-green-700: #277b6c;
+  --col-green-900: #173f3d;
+  --col-grey-100: #efefef;
+  --col-grey-400: #d0d3d4;
+  --col-coral-400: #ff6b5e;
   /* Font Sizes */
   --base-font-size: 16px;
   --fs-300: 0.8rem;
@@ -25,19 +23,20 @@
   --fs-800: clamp(2.5rem, 1.6vw + 1.5rem, 3.05rem);
   --fs-900: clamp(3.2rem, 2vw + 1.8rem, 3.8rem);
   /* Font Families */
-  --ff-body: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  --ff-heading: "Amarante", Georgia, "Times New Roman", serif;
+  --ff-body: "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --ff-heading: "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   --ff-fa: "Font Awesome 6 Pro";
   /* Font Weights */
   --fw-400: 400;
-  --fw-500: 500;
+  --fw-600: 600;
   --fw-700: 700;
   /* Effects */
-  --transition: 250ms ease-out;
+  --transition: 150ms ease-out;
   /* Site General */
   --h-top: 83px;
   --h-top-desktop: 83px;
-  --border-radius: 0.5rem;
+  --border-sm: 0.5rem;
+  --border-lg: 1rem;
   --shadow-sm: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   --shadow-lg: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
   /* Spacing */
@@ -672,7 +671,7 @@ progress {
   color: #6c757d;
 }
 
-.container,
+.container, .yoast-breadcrumbs,
 .container-fluid,
 .container-xxl,
 .container-xl,
@@ -689,27 +688,27 @@ progress {
 }
 
 @media (min-width: 576px) {
-  .container-sm, .container {
+  .container-sm, .container, .yoast-breadcrumbs {
     max-width: 540px;
   }
 }
 @media (min-width: 768px) {
-  .container-md, .container-sm, .container {
+  .container-md, .container-sm, .container, .yoast-breadcrumbs {
     max-width: 750px;
   }
 }
 @media (min-width: 992px) {
-  .container-lg, .container-md, .container-sm, .container {
+  .container-lg, .container-md, .container-sm, .container, .yoast-breadcrumbs {
     max-width: 970px;
   }
 }
 @media (min-width: 1200px) {
-  .container-xl, .container-lg, .container-md, .container-sm, .container {
+  .container-xl, .container-lg, .container-md, .container-sm, .container, .yoast-breadcrumbs {
     max-width: 1170px;
   }
 }
 @media (min-width: 1400px) {
-  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container, .yoast-breadcrumbs {
     max-width: 1360px;
   }
 }
@@ -2037,8 +2036,7 @@ progress {
   color: #6c757d;
 }
 
-.form-control, #cmApp_signupEmail, .ginput_container input:not([type=checkbox]),
-.ginput_container textarea {
+.form-control {
   display: block;
   width: 100%;
   padding: 0.375rem 0.75rem;
@@ -2056,47 +2054,39 @@ progress {
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
-  .form-control, #cmApp_signupEmail, .ginput_container input:not([type=checkbox]),
-  .ginput_container textarea {
+  .form-control {
     transition: none;
   }
 }
-.form-control[type=file], [type=file]#cmApp_signupEmail, .ginput_container input[type=file]:not([type=checkbox]),
-.ginput_container textarea[type=file] {
+.form-control[type=file] {
   overflow: hidden;
 }
-.form-control[type=file]:not(:disabled):not([readonly]), [type=file]#cmApp_signupEmail:not(:disabled):not([readonly]), .ginput_container input[type=file]:not(:disabled):not([readonly]):not([type=checkbox]),
-.ginput_container textarea[type=file]:not(:disabled):not([readonly]) {
+.form-control[type=file]:not(:disabled):not([readonly]) {
   cursor: pointer;
 }
-.form-control:focus, #cmApp_signupEmail:focus, .ginput_container input:focus:not([type=checkbox]),
-.ginput_container textarea:focus {
+.form-control:focus {
   color: #212529;
   background-color: #fff;
   border-color: rgb(174, 191, 205.5);
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(93, 127, 156, 0.25);
 }
-.form-control::-webkit-date-and-time-value, #cmApp_signupEmail::-webkit-date-and-time-value, .ginput_container input:not([type=checkbox])::-webkit-date-and-time-value,
-.ginput_container textarea::-webkit-date-and-time-value {
+.form-control::-webkit-date-and-time-value {
   height: 1.5em;
 }
-.form-control::-moz-placeholder, #cmApp_signupEmail::-moz-placeholder, .ginput_container input:not([type=checkbox])::-moz-placeholder, .ginput_container textarea::-moz-placeholder {
+.form-control::-moz-placeholder {
   color: #6c757d;
   opacity: 1;
 }
-.form-control::placeholder, #cmApp_signupEmail::placeholder, .ginput_container input:not([type=checkbox])::placeholder,
-.ginput_container textarea::placeholder {
+.form-control::placeholder {
   color: #6c757d;
   opacity: 1;
 }
-.form-control:disabled, #cmApp_signupEmail:disabled, .ginput_container input:disabled:not([type=checkbox]),
-.ginput_container textarea:disabled {
+.form-control:disabled {
   background-color: #e9ecef;
   opacity: 1;
 }
-.form-control::file-selector-button, #cmApp_signupEmail::file-selector-button, .ginput_container input:not([type=checkbox])::file-selector-button,
-.ginput_container textarea::file-selector-button {
+.form-control::file-selector-button {
   padding: 0.375rem 0.75rem;
   margin: -0.375rem -0.75rem;
   margin-inline-end: 0.75rem;
@@ -2111,13 +2101,11 @@ progress {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
-  .form-control::file-selector-button, #cmApp_signupEmail::file-selector-button, .ginput_container input:not([type=checkbox])::file-selector-button,
-  .ginput_container textarea::file-selector-button {
+  .form-control::file-selector-button {
     transition: none;
   }
 }
-.form-control:hover:not(:disabled):not([readonly])::file-selector-button, #cmApp_signupEmail:hover:not(:disabled):not([readonly])::file-selector-button, .ginput_container input:hover:not(:disabled):not([readonly]):not([type=checkbox])::file-selector-button,
-.ginput_container textarea:hover:not(:disabled):not([readonly])::file-selector-button {
+.form-control:hover:not(:disabled):not([readonly])::file-selector-button {
   background-color: rgb(221.35, 224.2, 227.05);
 }
 
@@ -2164,8 +2152,7 @@ progress {
   margin-inline-end: 1rem;
 }
 
-textarea.form-control, textarea#cmApp_signupEmail,
-.ginput_container textarea {
+textarea.form-control {
   min-height: calc(1.5em + 0.75rem + 2px);
 }
 textarea.form-control-sm {
@@ -2256,13 +2243,13 @@ textarea.form-control-lg {
   border-radius: 0.5rem;
 }
 
-.form-check, .ginput_container input[type=checkbox] {
+.form-check {
   display: block;
   min-height: 1.5rem;
   padding-left: 1.5em;
   margin-bottom: 0.125rem;
 }
-.form-check .form-check-input, .ginput_container input[type=checkbox] .form-check-input {
+.form-check .form-check-input {
   float: left;
   margin-left: -1.5em;
 }
@@ -2474,8 +2461,7 @@ textarea.form-control-lg {
 .form-floating {
   position: relative;
 }
-.form-floating > .form-control, .form-floating > #cmApp_signupEmail, .ginput_container .form-floating > input:not([type=checkbox]),
-.ginput_container .form-floating > textarea,
+.form-floating > .form-control,
 .form-floating > .form-control-plaintext,
 .form-floating > .form-select {
   height: calc(3.5rem + 2px);
@@ -2502,33 +2488,28 @@ textarea.form-control-lg {
     transition: none;
   }
 }
-.form-floating > .form-control, .form-floating > #cmApp_signupEmail, .ginput_container .form-floating > input:not([type=checkbox]),
-.ginput_container .form-floating > textarea,
+.form-floating > .form-control,
 .form-floating > .form-control-plaintext {
   padding: 1rem 0.75rem;
 }
-.form-floating > .form-control::-moz-placeholder, .form-floating > #cmApp_signupEmail::-moz-placeholder, .ginput_container .form-floating > input:not([type=checkbox])::-moz-placeholder, .ginput_container .form-floating > textarea::-moz-placeholder, .form-floating > .form-control-plaintext::-moz-placeholder {
+.form-floating > .form-control::-moz-placeholder, .form-floating > .form-control-plaintext::-moz-placeholder {
   color: transparent;
 }
-.form-floating > .form-control::placeholder, .form-floating > #cmApp_signupEmail::placeholder, .ginput_container .form-floating > input:not([type=checkbox])::placeholder,
-.ginput_container .form-floating > textarea::placeholder,
+.form-floating > .form-control::placeholder,
 .form-floating > .form-control-plaintext::placeholder {
   color: transparent;
 }
-.form-floating > .form-control:not(:-moz-placeholder), .form-floating > #cmApp_signupEmail:not(:-moz-placeholder), .ginput_container .form-floating > input:not(:-moz-placeholder):not([type=checkbox]), .ginput_container .form-floating > textarea:not(:-moz-placeholder), .form-floating > .form-control-plaintext:not(:-moz-placeholder) {
+.form-floating > .form-control:not(:-moz-placeholder), .form-floating > .form-control-plaintext:not(:-moz-placeholder) {
   padding-top: 1.625rem;
   padding-bottom: 0.625rem;
 }
-.form-floating > .form-control:focus, .form-floating > #cmApp_signupEmail:focus, .ginput_container .form-floating > input:focus:not([type=checkbox]),
-.ginput_container .form-floating > textarea:focus, .form-floating > .form-control:not(:placeholder-shown), .form-floating > #cmApp_signupEmail:not(:placeholder-shown), .ginput_container .form-floating > input:not(:placeholder-shown):not([type=checkbox]),
-.ginput_container .form-floating > textarea:not(:placeholder-shown),
+.form-floating > .form-control:focus, .form-floating > .form-control:not(:placeholder-shown),
 .form-floating > .form-control-plaintext:focus,
 .form-floating > .form-control-plaintext:not(:placeholder-shown) {
   padding-top: 1.625rem;
   padding-bottom: 0.625rem;
 }
-.form-floating > .form-control:-webkit-autofill, .form-floating > #cmApp_signupEmail:-webkit-autofill, .ginput_container .form-floating > input:-webkit-autofill:not([type=checkbox]),
-.ginput_container .form-floating > textarea:-webkit-autofill,
+.form-floating > .form-control:-webkit-autofill,
 .form-floating > .form-control-plaintext:-webkit-autofill {
   padding-top: 1.625rem;
   padding-bottom: 0.625rem;
@@ -2537,23 +2518,18 @@ textarea.form-control-lg {
   padding-top: 1.625rem;
   padding-bottom: 0.625rem;
 }
-.form-floating > .form-control:not(:-moz-placeholder) ~ label, .form-floating > #cmApp_signupEmail:not(:-moz-placeholder) ~ label, .ginput_container .form-floating > input:not(:-moz-placeholder):not([type=checkbox]) ~ label, .ginput_container .form-floating > textarea:not(:-moz-placeholder) ~ label {
+.form-floating > .form-control:not(:-moz-placeholder) ~ label {
   opacity: 0.65;
   transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
 }
-.form-floating > .form-control:focus ~ label, .form-floating > #cmApp_signupEmail:focus ~ label, .ginput_container .form-floating > input:focus:not([type=checkbox]) ~ label,
-.ginput_container .form-floating > textarea:focus ~ label,
+.form-floating > .form-control:focus ~ label,
 .form-floating > .form-control:not(:placeholder-shown) ~ label,
-.form-floating > #cmApp_signupEmail:not(:placeholder-shown) ~ label,
-.ginput_container .form-floating > input:not(:placeholder-shown):not([type=checkbox]) ~ label,
-.ginput_container .form-floating > textarea:not(:placeholder-shown) ~ label,
 .form-floating > .form-control-plaintext ~ label,
 .form-floating > .form-select ~ label {
   opacity: 0.65;
   transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
 }
-.form-floating > .form-control:-webkit-autofill ~ label, .form-floating > #cmApp_signupEmail:-webkit-autofill ~ label, .ginput_container .form-floating > input:-webkit-autofill:not([type=checkbox]) ~ label,
-.ginput_container .form-floating > textarea:-webkit-autofill ~ label {
+.form-floating > .form-control:-webkit-autofill ~ label {
   opacity: 0.65;
   transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
 }
@@ -2568,8 +2544,7 @@ textarea.form-control-lg {
   align-items: stretch;
   width: 100%;
 }
-.input-group > .form-control, .input-group > #cmApp_signupEmail, .ginput_container .input-group > input:not([type=checkbox]),
-.ginput_container .input-group > textarea,
+.input-group > .form-control,
 .input-group > .form-select,
 .input-group > .form-floating {
   position: relative;
@@ -2577,8 +2552,7 @@ textarea.form-control-lg {
   width: 1%;
   min-width: 0;
 }
-.input-group > .form-control:focus, .input-group > #cmApp_signupEmail:focus, .ginput_container .input-group > input:focus:not([type=checkbox]),
-.ginput_container .input-group > textarea:focus,
+.input-group > .form-control:focus,
 .input-group > .form-select:focus,
 .input-group > .form-floating:focus-within {
   z-index: 5;
@@ -2606,8 +2580,7 @@ textarea.form-control-lg {
   border-radius: 0.375rem;
 }
 
-.input-group-lg > .form-control, .input-group-lg > #cmApp_signupEmail, .ginput_container .input-group-lg > input:not([type=checkbox]),
-.ginput_container .input-group-lg > textarea,
+.input-group-lg > .form-control,
 .input-group-lg > .form-select,
 .input-group-lg > .input-group-text,
 .input-group-lg > .btn {
@@ -2616,8 +2589,7 @@ textarea.form-control-lg {
   border-radius: 0.5rem;
 }
 
-.input-group-sm > .form-control, .input-group-sm > #cmApp_signupEmail, .ginput_container .input-group-sm > input:not([type=checkbox]),
-.ginput_container .input-group-sm > textarea,
+.input-group-sm > .form-control,
 .input-group-sm > .form-select,
 .input-group-sm > .input-group-text,
 .input-group-sm > .btn {
@@ -2634,9 +2606,6 @@ textarea.form-control-lg {
 .input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating),
 .input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n+3),
 .input-group:not(.has-validation) > .form-floating:not(:last-child) > .form-control,
-.input-group:not(.has-validation) > .form-floating:not(:last-child) > #cmApp_signupEmail,
-.ginput_container .input-group:not(.has-validation) > .form-floating:not(:last-child) > input:not([type=checkbox]),
-.ginput_container .input-group:not(.has-validation) > .form-floating:not(:last-child) > textarea,
 .input-group:not(.has-validation) > .form-floating:not(:last-child) > .form-select {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -2644,9 +2613,6 @@ textarea.form-control-lg {
 .input-group.has-validation > :nth-last-child(n+3):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating),
 .input-group.has-validation > .dropdown-toggle:nth-last-child(n+4),
 .input-group.has-validation > .form-floating:nth-last-child(n+3) > .form-control,
-.input-group.has-validation > .form-floating:nth-last-child(n+3) > #cmApp_signupEmail,
-.ginput_container .input-group.has-validation > .form-floating:nth-last-child(n+3) > input:not([type=checkbox]),
-.ginput_container .input-group.has-validation > .form-floating:nth-last-child(n+3) > textarea,
 .input-group.has-validation > .form-floating:nth-last-child(n+3) > .form-select {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -2656,8 +2622,7 @@ textarea.form-control-lg {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-.input-group > .form-floating:not(:first-child) > .form-control, .input-group > .form-floating:not(:first-child) > #cmApp_signupEmail, .ginput_container .input-group > .form-floating:not(:first-child) > input:not([type=checkbox]),
-.ginput_container .input-group > .form-floating:not(:first-child) > textarea,
+.input-group > .form-floating:not(:first-child) > .form-control,
 .input-group > .form-floating:not(:first-child) > .form-select {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -2692,10 +2657,7 @@ textarea.form-control-lg {
   display: block;
 }
 
-.was-validated .form-control:valid, .was-validated #cmApp_signupEmail:valid, .was-validated .ginput_container input:valid:not([type=checkbox]), .ginput_container .was-validated input:valid:not([type=checkbox]),
-.was-validated .ginput_container textarea:valid,
-.ginput_container .was-validated textarea:valid, .form-control.is-valid, .is-valid#cmApp_signupEmail, .ginput_container input.is-valid:not([type=checkbox]),
-.ginput_container textarea.is-valid {
+.was-validated .form-control:valid, .form-control.is-valid {
   border-color: #198754;
   padding-right: calc(1.5em + 0.75rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
@@ -2703,18 +2665,12 @@ textarea.form-control-lg {
   background-position: right calc(0.375em + 0.1875rem) center;
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
-.was-validated .form-control:valid:focus, .was-validated #cmApp_signupEmail:valid:focus, .was-validated .ginput_container input:valid:focus:not([type=checkbox]), .ginput_container .was-validated input:valid:focus:not([type=checkbox]),
-.was-validated .ginput_container textarea:valid:focus,
-.ginput_container .was-validated textarea:valid:focus, .form-control.is-valid:focus, .is-valid#cmApp_signupEmail:focus, .ginput_container input.is-valid:focus:not([type=checkbox]),
-.ginput_container textarea.is-valid:focus {
+.was-validated .form-control:valid:focus, .form-control.is-valid:focus {
   border-color: #198754;
   box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
 }
 
-.was-validated textarea.form-control:valid, .was-validated textarea#cmApp_signupEmail:valid,
-.was-validated .ginput_container textarea:valid,
-.ginput_container .was-validated textarea:valid, textarea.form-control.is-valid, textarea.is-valid#cmApp_signupEmail,
-.ginput_container textarea.is-valid {
+.was-validated textarea.form-control:valid, textarea.form-control.is-valid {
   padding-right: calc(1.5em + 0.75rem);
   background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem);
 }
@@ -2754,10 +2710,7 @@ textarea.form-control-lg {
   margin-left: 0.5em;
 }
 
-.was-validated .input-group > .form-control:not(:focus):valid, .was-validated .input-group > #cmApp_signupEmail:not(:focus):valid, .was-validated .ginput_container .input-group > input:not(:focus):valid:not([type=checkbox]), .ginput_container .was-validated .input-group > input:not(:focus):valid:not([type=checkbox]),
-.was-validated .ginput_container .input-group > textarea:not(:focus):valid,
-.ginput_container .was-validated .input-group > textarea:not(:focus):valid, .input-group > .form-control:not(:focus).is-valid, .input-group > #cmApp_signupEmail:not(:focus).is-valid, .ginput_container .input-group > input:not(:focus).is-valid:not([type=checkbox]),
-.ginput_container .input-group > textarea:not(:focus).is-valid,
+.was-validated .input-group > .form-control:not(:focus):valid, .input-group > .form-control:not(:focus).is-valid,
 .was-validated .input-group > .form-select:not(:focus):valid,
 .input-group > .form-select:not(:focus).is-valid,
 .was-validated .input-group > .form-floating:not(:focus-within):valid,
@@ -2794,10 +2747,7 @@ textarea.form-control-lg {
   display: block;
 }
 
-.was-validated .form-control:invalid, .was-validated #cmApp_signupEmail:invalid, .was-validated .ginput_container input:invalid:not([type=checkbox]), .ginput_container .was-validated input:invalid:not([type=checkbox]),
-.was-validated .ginput_container textarea:invalid,
-.ginput_container .was-validated textarea:invalid, .form-control.is-invalid, .is-invalid#cmApp_signupEmail, .ginput_container input.is-invalid:not([type=checkbox]),
-.ginput_container textarea.is-invalid {
+.was-validated .form-control:invalid, .form-control.is-invalid {
   border-color: #dc3545;
   padding-right: calc(1.5em + 0.75rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
@@ -2805,18 +2755,12 @@ textarea.form-control-lg {
   background-position: right calc(0.375em + 0.1875rem) center;
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
-.was-validated .form-control:invalid:focus, .was-validated #cmApp_signupEmail:invalid:focus, .was-validated .ginput_container input:invalid:focus:not([type=checkbox]), .ginput_container .was-validated input:invalid:focus:not([type=checkbox]),
-.was-validated .ginput_container textarea:invalid:focus,
-.ginput_container .was-validated textarea:invalid:focus, .form-control.is-invalid:focus, .is-invalid#cmApp_signupEmail:focus, .ginput_container input.is-invalid:focus:not([type=checkbox]),
-.ginput_container textarea.is-invalid:focus {
+.was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {
   border-color: #dc3545;
   box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
 }
 
-.was-validated textarea.form-control:invalid, .was-validated textarea#cmApp_signupEmail:invalid,
-.was-validated .ginput_container textarea:invalid,
-.ginput_container .was-validated textarea:invalid, textarea.form-control.is-invalid, textarea.is-invalid#cmApp_signupEmail,
-.ginput_container textarea.is-invalid {
+.was-validated textarea.form-control:invalid, textarea.form-control.is-invalid {
   padding-right: calc(1.5em + 0.75rem);
   background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem);
 }
@@ -2856,10 +2800,7 @@ textarea.form-control-lg {
   margin-left: 0.5em;
 }
 
-.was-validated .input-group > .form-control:not(:focus):invalid, .was-validated .input-group > #cmApp_signupEmail:not(:focus):invalid, .was-validated .ginput_container .input-group > input:not(:focus):invalid:not([type=checkbox]), .ginput_container .was-validated .input-group > input:not(:focus):invalid:not([type=checkbox]),
-.was-validated .ginput_container .input-group > textarea:not(:focus):invalid,
-.ginput_container .was-validated .input-group > textarea:not(:focus):invalid, .input-group > .form-control:not(:focus).is-invalid, .input-group > #cmApp_signupEmail:not(:focus).is-invalid, .ginput_container .input-group > input:not(:focus).is-invalid:not([type=checkbox]),
-.ginput_container .input-group > textarea:not(:focus).is-invalid,
+.was-validated .input-group > .form-control:not(:focus):invalid, .input-group > .form-control:not(:focus).is-invalid,
 .was-validated .input-group > .form-select:not(:focus):invalid,
 .input-group > .form-select:not(:focus).is-invalid,
 .was-validated .input-group > .form-floating:not(:focus-within):invalid,
@@ -3855,7 +3796,7 @@ textarea.form-control-lg {
   justify-content: space-between;
   padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
 }
-.navbar > .container,
+.navbar > .container, .navbar > .yoast-breadcrumbs,
 .navbar > .container-fluid,
 .navbar > .container-sm,
 .navbar > .container-md,
@@ -21675,35 +21616,29 @@ readers do not read off random characters that represent icons */
 }
 
 /* Font Faces */
-/* Montserrat */
-@font-face {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("../fonts/montserrat-v29-latin-regular.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("../fonts/montserrat-v29-latin-500.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("../fonts/montserrat-v29-latin-700.woff2") format("woff2");
-}
-/* amarante-regular - latin */
+/* manrope-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Amarante";
+  font-family: "Manrope";
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/amarante-v28-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("../fonts/manrope-v15-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* manrope-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/manrope-v15-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* manrope-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/manrope-v15-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 :root {
   font-variant-ligatures: none;
@@ -21736,6 +21671,7 @@ h3,
   line-height: 1.1;
   text-wrap: balance;
   margin-bottom: 0.5em;
+  color: var(--col-primary-900);
 }
 
 /* Heading Levels */
@@ -21746,12 +21682,12 @@ h1,
 
 h2,
 .h2 {
-  font-size: var(--fs-800);
+  font-size: var(--fs-700);
 }
 
 h3,
 .h3 {
-  font-size: var(--fs-700);
+  font-size: var(--fs-600);
 }
 
 h4,
@@ -21890,22 +21826,81 @@ strong {
   margin: 0.75rem 0;
 }
 
-/* Colour Classes – Valewood Theme */
-/* Neutrals */
-.has-plum-color,
-.text--plum {
-  color: var(--col-plum);
+/* Colour Classes */
+.has-green-100-color,
+.text--green-100 {
+  color: var(--col-green-100);
 }
 
-.has-dark-background-color,
-.bg--dark {
-  background-color: var(--col-dark);
+.has-green-100-background-color,
+.bg--green-100 {
+  background-color: var(--col-green-100);
 }
 
-.button, .wp-block-search__button, .gform_button.wp-block-search__button, .gform_button.button.button, .gform_button.wp-block-search__button, .gform_button.wp-block-search__button, .gform_button.wp-block-search__button, .gform_button.wp-block-search__button {
+.has-green-400-color,
+.text--green-400 {
+  color: var(--col-green-400);
+}
+
+.has-green-400-background-color,
+.bg--green-400 {
+  background-color: var(--col-green-400);
+}
+
+.has-green-700-color,
+.text--green-700 {
+  color: var(--col-green-700);
+}
+
+.has-green-700-background-color,
+.bg--green-700 {
+  background-color: var(--col-green-700);
+}
+
+.has-green-900-color,
+.text--green-900 {
+  color: var(--col-green-900);
+}
+
+.has-green-900-background-color,
+.bg--green-900 {
+  background-color: var(--col-green-900);
+}
+
+.has-grey-100-color,
+.text--grey-100 {
+  color: var(--col-grey-100);
+}
+
+.has-grey-100-background-color,
+.bg--grey-100 {
+  background-color: var(--col-grey-100);
+}
+
+.has-grey-400-color,
+.text--grey-400 {
+  color: var(--col-grey-400);
+}
+
+.has-grey-400-background-color,
+.bg--grey-400 {
+  background-color: var(--col-grey-400);
+}
+
+.has-coral-400-color,
+.text--coral-400 {
+  color: var(--col-coral-400);
+}
+
+.has-coral-400-background-color,
+.bg--coral-400 {
+  background-color: var(--col-coral-400);
+}
+
+.button, .wp-block-search__button {
   display: inline-block;
   padding: 0.625rem 1.25rem;
-  border-radius: var(--border-radius);
+  border-radius: var(--border-sm);
   align-self: center;
   text-align: center;
   text-decoration: none;
@@ -21918,27 +21913,27 @@ strong {
   cursor: pointer;
   transition: border-color var(--transition), color var(--transition), background-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
-.button:disabled, .wp-block-search__button:disabled, .gform_button.wp-block-search__button:disabled, .gform_button.button:disabled {
+.button:disabled, .wp-block-search__button:disabled {
   border-color: var(--col-grey-200);
   background-color: var(--col-grey-200);
   color: var(--col-grey-400);
   cursor: not-allowed;
 }
-.button:focus-visible, .wp-block-search__button:focus-visible, .gform_button.wp-block-search__button:focus-visible, .gform_button.button:focus-visible {
+.button:focus-visible, .wp-block-search__button:focus-visible {
   outline: 2px solid var(--col-primary-300);
   outline-offset: 2px;
 }
 
 /* Primary Dark Button */
 .button-primary {
-  background-color: var(--col-primary-500);
-  border-color: var(--col-primary-500);
+  background-color: var(--col-green-900);
+  border-color: var(--col-green-900);
   color: var(--col-light);
   box-shadow: 0 2px 6px hsl(var(--hsl-dark)/0.08);
 }
 .button-primary:hover {
-  background-color: var(--col-primary-400);
-  border-color: var(--col-primary-400);
+  background-color: var(--col-green-400);
+  border-color: var(--col-green-400);
   color: var(--col-light);
   box-shadow: 0 4px 10px hsl(var(--hsl-dark)/0.1);
 }
@@ -21947,35 +21942,18 @@ strong {
   box-shadow: inset 0 2px 4px hsl(var(--hsl-dark)/0.1);
 }
 
-/* Primary Light Button */
-.button-primary--light {
-  background-color: var(--col-primary-300);
-  border-color: var(--col-primary-300);
-  color: var(--col-dark);
-  box-shadow: 0 2px 6px hsl(var(--hsl-dark)/0.08);
-}
-.button-primary--light:hover {
-  background-color: var(--col-primary-400);
-  border-color: var(--col-primary-400);
-  color: var(--col-light);
-  box-shadow: 0 4px 10px hsl(var(--hsl-light)/0.1);
-}
-.button-primary--light:active {
-  transform: scale(0.98);
-  box-shadow: inset 0 2px 4px hsl(var(--hsl-light)/0.1);
-}
-
 /* Outline Button */
 .button-outline {
-  border-color: var(--col-primary-400);
+  border-color: var(--col-white);
   background-color: transparent;
-  color: var(--col-primary-400);
+  color: var(--col-white);
   box-shadow: none;
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition), box-shadow var(--transition);
 }
 .button-outline:hover {
-  background-color: var(--col-primary-300);
+  background-color: var(--col-grey-400);
   color: var(--col-dark);
-  border-color: var(--col-primary-300);
+  border-color: var(--col-grey-400);
   box-shadow: 0 2px 6px hsl(var(--hsl-dark)/0.06);
 }
 .button-outline:active {
@@ -22028,15 +22006,18 @@ header {
   background-color: white;
   transition: var(--transition);
 }
+header .contact-info {
+  font-size: var(--fs-350);
+  font-weight: var(--fw-700);
+}
 header .navbar {
   border-bottom: 1px solid hsl(0, 0%, 80%);
   transition: var(--transition);
 }
 header a.nav-link {
   color: var(--col-primary-400);
-  font-size: var(--fs-400);
+  font-size: var(--fs-350);
   font-weight: var(--fw-700);
-  letter-spacing: 0.1em;
   text-transform: uppercase;
   transition: var(--transition);
   padding-left: 2rem !important;
@@ -22052,13 +22033,13 @@ header .logo-container {
   margin-right: 1rem;
 }
 header .logo {
-  background-image: url(../img/btg-logo-wide.png);
+  background-image: url(../img/sai-logo.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   display: inline-block;
-  aspect-ratio: 1815/542;
-  height: 80px;
+  aspect-ratio: 1246/181.5;
+  height: 25px;
   max-width: 100%;
 }
 header.scrolled {
@@ -22100,7 +22081,7 @@ header .order-2 {
 }
 
 .footer {
-  background-color: var(--col-olive);
+  background-color: var(--col-green-900);
   color: #fff;
   font-size: var(--fs-400);
 }
@@ -22163,128 +22144,7 @@ header .order-2 {
   }
 }
 
-.gform_required_legend,
-.gfield_required {
-  display: none !important;
-}
-
-.ginput_container input {
-  border-radius: 0 !important;
-}
-
-.gfield_label {
-  font-weight: var(--fw-500) !important;
-}
-
-.gform_button.button.button, .gform_button.wp-block-search__button, .gform_button.wp-block-search__button, .gform_button.wp-block-search__button, .gform_button.wp-block-search__button, .gform_button.button, .gform_button.wp-block-search__button, .gform_button.wp-block-search__button, .gform_button.button, .gform_button.wp-block-search__button, .gform_button.wp-block-search__button, .gform_button.button, .gform_button.wp-block-search__button, .gform_button.wp-block-search__button {
-  border-radius: 100vw;
-  display: inline-block;
-  background-color: var(--col-blue-700);
-  color: #fff;
-  text-align: center;
-  transition: all var(--transition);
-  flex-basis: 274px;
-  font-weight: var(--fw-400);
-  padding: 0.75rem 1rem;
-  line-height: 22.4px;
-  font-size: 1rem;
-}
-
-.cmApp_signupContainer.cmApp_embedded {
-  max-width: unset !important;
-  width: unset !important;
-}
-
-#cmApp_signupEmail {
-  border-radius: 0.365rem !important;
-}
-
-#cmApp_signupForm {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-#cmApp_signupForm #cmApp_errorAll {
-  grid-column: 1/4;
-}
-#cmApp_signupForm .cmApp_fieldWrap {
-  grid-column: 1/4;
-}
-
-.lc-home-hero {
-  height: 600px;
-  overflow: hidden;
-  position: relative;
-}
-.lc-home-hero .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
-  z-index: 1;
-}
-.lc-home-hero .carousel-item {
-  height: 100%;
-}
-.lc-home-hero .carousel-item img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
-  -o-object-position: center;
-  object-position: center;
-}
-.lc-home-hero .carousel-indicators {
-  margin: 0;
-  bottom: 1rem;
-}
-.lc-home-hero__overlay {
-  z-index: 2;
-  max-width: 90%;
-  width: 800px;
-  position: relative;
-}
-@media (max-width: 767.98px) {
-  .lc-home-hero__overlay h1, .lc-home-hero__overlay .h1 {
-    font-size: 1.75rem;
-  }
-  .lc-home-hero__overlay__strapline {
-    font-size: 1.25rem;
-  }
-}
-.lc-home-hero__overlay::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("../img/patterns/halftone.svg");
-  background-repeat: repeat;
-  background-size: 300px;
-  opacity: 0.05;
-  z-index: 0;
-  pointer-events: none;
-}
-.lc-home-hero__title {
-  font-weight: 700;
-}
-.lc-home-hero__strapline {
-  margin-top: 0.5rem;
-  font-family: var(--ff-serif);
-  font-weight: var(--fw-400);
-  font-size: var(--fs-600);
-  line-height: 1.2;
-}
-.lc-home-hero__buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-}
-.lc-home-hero__button {
-  margin-top: 1.5rem;
-}
-
-.section-intro .container {
+.section-intro .container, .section-intro .yoast-breadcrumbs {
   border-bottom: 1px solid var(--col-grey-100);
 }
 .section-intro img {
@@ -22327,7 +22187,7 @@ header .order-2 {
   flex-wrap: wrap;
   gap: 1.25rem;
 }
-.section-cta-banner .button, .section-cta-banner .wp-block-search__button, .section-cta-banner .gform_button.wp-block-search__button, .section-cta-banner .gform_button.button.button {
+.section-cta-banner .button, .section-cta-banner .wp-block-search__button {
   font-size: var(--fs-400);
   padding: 0.75rem 2rem;
   box-shadow: 0 4px 12px hsla(0, 0%, 0%, 0.05);
@@ -22344,33 +22204,81 @@ header .order-2 {
 }
 
 .text_image img {
-  border-radius: var(--border-radius);
+  border-radius: var(--border-lg);
+  box-shadow: var(--shadow-sm);
 }
 
-.section-teaser {
-  background-color: var(--col-cream);
-}
-.section-teaser .teaser__link {
-  text-decoration: none;
-  color: var(--col-dark);
-  border-radius: 1rem;
+.hero {
+  position: relative;
+  height: 600px;
   overflow: hidden;
-  background-color: #fff;
+}
+.hero .carousel {
   height: 100%;
-  display: grid;
-  grid-template-rows: auto 1fr;
-  box-shadow: var(--shadow-lg);
-  transition: box-shadow var(--transition), color var(--transition);
 }
-.section-teaser .teaser__link:hover {
-  box-shadow: var(--shadow-sm);
-  color: var(--col-plum);
+.hero .carousel .carousel-inner,
+.hero .carousel .carousel-item,
+.hero .carousel img {
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
-.section-teaser .teaser__image {
-  aspect-ratio: 4/3;
+.hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.4) 20%, rgba(0, 0, 0, 0) 100%);
+  z-index: 2;
+}
+.hero__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+.hero__title {
+  font-weight: 700;
+}
+.hero__strapline {
+  font-weight: 400;
+  margin-top: 0.5rem;
+  font-family: var(--ff-heading);
+  font-weight: var(--fw-400);
+  font-size: var(--fs-600);
+  line-height: 1.2;
+}
+.hero__logo {
+  max-width: min(400px, 90vw);
+  margin-bottom: 1rem;
+}
+
+.lc-product-type {
+  background-color: var(--col-grey-400);
+}
+.lc-product-type__card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  border-radius: var(--border-lg);
   overflow: hidden;
+  background-color: white;
+  box-shadow: var(--shadow-lg);
+  transition: box-shadow var(--transition), transform var(--transition);
 }
-.section-teaser .teaser__image img {
+.lc-product-type__card:hover {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(2px);
+}
+.lc-product-type__card:hover .lc-product-type__link {
+  color: var(--col-coral-400);
+}
+.lc-product-type__image {
+  aspect-ratio: 4/3;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -22378,23 +22286,67 @@ header .order-2 {
   -o-object-position: center;
   object-position: center;
 }
-.section-teaser .teaser__content {
+.lc-product-type__content {
   padding: 1rem;
+  color: var(--col-dark);
 }
-.section-teaser .teaser__title {
+.lc-product-type__title {
   font-size: var(--fs-500);
   font-weight: var(--fw-700);
   margin-bottom: 0.5rem;
 }
-.section-teaser .teaser__subtitle {
-  font-size: var(--fs-400);
-  font-weight: var(--fw-500);
-  margin-bottom: 0.5rem;
-}
-.section-teaser .teaser__excerpt {
-  font-size: var(--fs-350);
+.lc-product-type__description {
   font-weight: var(--fw-400);
-  margin-bottom: 0.5rem;
+}
+.lc-product-type__link {
+  text-align: end;
+  transition: color var(--transition);
+}
+
+.product-search {
+  position: relative;
+  isolation: isolate;
+}
+.product-search__background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.product-search__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(var(--col-green-900), var(--col-green-400));
+  filter: brightness(0.8);
+  opacity: 0.7;
+  z-index: 0;
+}
+.product-search .container, .product-search .yoast-breadcrumbs {
+  position: relative;
+  z-index: 1;
+}
+.product-search .container h2, .product-search .yoast-breadcrumbs h2, .product-search .container .h2, .product-search .yoast-breadcrumbs .h2 {
+  color: white;
+}
+.product-search .container label, .product-search .yoast-breadcrumbs label {
+  color: white;
+  font-weight: 700;
+}
+.product-search .quick-product-locator {
+  background: rgba(255, 255, 255, 0.1); /* transparent white */
+  backdrop-filter: blur(10px); /* apply blur */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* subtle border */
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 main {
@@ -22454,14 +22406,15 @@ main a.anchor {
   }
 }
 
-.breadcrumbs {
+.yoast-breadcrumbs {
+  padding-block: 2rem;
   font-size: var(--fs-300);
 }
-.breadcrumbs a {
+.yoast-breadcrumbs a {
   text-decoration: none;
 }
 
-.container-xl .container-xl {
+.container .container, .yoast-breadcrumbs .container, .container .yoast-breadcrumbs, .yoast-breadcrumbs .yoast-breadcrumbs {
   padding-inline: 0;
 }
 
@@ -22521,11 +22474,6 @@ main a.anchor {
   margin-bottom: 1em;
 }
 
-.form-control, .ginput_container input:not([type=checkbox]),
-.ginput_container textarea, #cmApp_signupEmail {
-  border-radius: 0;
-}
-
 .wp-block-search__label {
   margin-bottom: 0.5rem;
   font-weight: var(--fw-500);
@@ -22568,6 +22516,60 @@ for (; i < all.length; i++) {
   font-family: var(--ff-body);
   font-size: var(--fs-400);
   margin-bottom: 1rem;
+}
+
+/* Match Bootstrap 5 .form-range appearance */
+.noUi-target {
+  border: none;
+  box-shadow: none;
+  background-color: #dee2e6; /* Bootstrap input background */
+  height: 0.5rem; /* Match Bootstrap track height */
+  border-radius: 0.25rem;
+}
+
+.noUi-connect {
+  background-color: var(--col-green-400); /* Bootstrap primary */
+}
+
+.noUi-horizontal .noUi-handle {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  top: -0.25rem;
+  background: #fff;
+  border: 1px solid #ced4da;
+  box-shadow: var(--shadow-sm);
+  cursor: grab;
+}
+
+.noUi-horizontal .noUi-handle:before,
+.noUi-horizontal .noUi-handle:after {
+  display: none; /* Remove default handle bars */
+}
+
+.noUi-tooltip {
+  background: var(--col-light);
+  color: var(--col-dark);
+  border-radius: 0.2rem;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--col-dark);
+}
+
+.product-card a {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  text-decoration: none;
+  color: var(--col-dark);
+  box-shadow: var(--shadow-lg);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.product-card a:hover {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(2px);
+}
+.product-card a li {
+  font-weight: 400;
 }
 
 .has-blue-color,

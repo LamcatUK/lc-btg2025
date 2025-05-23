@@ -5,7 +5,7 @@
  * This file contains various helper functions, shortcodes, and customizations
  * to enhance the functionality of the theme.
  *
- * @package lc-btg2025
+ * @package lc-saialupack2025
  */
 
 /**
@@ -97,7 +97,7 @@ add_shortcode(
         $email            = get_field( 'contact_email', 'option' );
         $obfuscated_email = antispambot( $email );
 		if ( $obfuscated_email ) {
-			return '<a href="mailto:' . esc_attr( $obfuscated_email ) . '"><i class="fas fa-envelope"></i></a>';
+			return '<a href="mailto:' . esc_attr( $obfuscated_email ) . '"><i class="fas fa-envelope"></i>' . esc_attr( $obfuscated_email ) . '</a>';
 		}
 	}
 );

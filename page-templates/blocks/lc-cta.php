@@ -2,7 +2,7 @@
 /**
  * Block template for LC CTA.
  *
- * @package lc-btg2025
+ * @package lc-saialupack2025
  */
 
 defined( 'ABSPATH' ) || exit;

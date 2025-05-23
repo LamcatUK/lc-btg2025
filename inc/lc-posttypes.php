@@ -5,7 +5,7 @@
  * This file contains the code to register custom post types
  * for the theme.
  *
- * @package lc-btg2025
+ * @package lc-saialupack2025
  */
 
 /**
@@ -14,38 +14,26 @@
  * This function defines and registers the "Testimonials" post type
  * with their respective labels, arguments, and settings.
  */
-function cb_register_post_types() {
+function lc_register_post_types() {
 
-	$args = array(
-		'label'                 => __( 'Testimonials', 'lc-btg2025' ),
-		'labels'                => array(
-			'name'          => __( 'Testimonial', 'lc-btg2025' ),
-			'singular_name' => __( 'Testimonial', 'lc-btg2025' ),
+register_post_type(
+	'product',
+	array(
+		'labels'       => array(
+			'name'          => 'Products',
+			'singular_name' => 'Product',
 		),
-		'description'           => '',
-		'public'                => true,
-		'publicly_queryable'    => true,
-		'show_ui'               => true,
-		'show_in_rest'          => true,
-		'rest_base'             => '',
-		'rest_controller_class' => 'WP_REST_Posts_Controller',
-		'has_archive'           => false,
-		'show_in_menu'          => true,
-		'show_in_nav_menus'     => true,
-		'delete_with_user'      => false,
-		'exclude_from_search'   => false,
-		'capability_type'       => 'post',
-		'map_meta_cap'          => true,
-		'hierarchical'          => false,
-		'query_var'             => true,
-		'supports'              => array( 'title', 'editor' ),
-		'show_in_graphql'       => false,
-	);
-
-	register_post_type( 'testimonials', $args );
+		'public'       => true,
+		'has_archive'  => true,
+		'rewrite'      => array( 'slug' => 'products', 'with_front' => false ),
+		'show_in_rest' => true,
+		'supports'     => array( 'title', 'thumbnail' ),
+		'menu_icon'    => 'dashicons-cart',
+	)
+);
 }
 
-add_action( 'init', 'cb_register_post_types' );
+add_action( 'init', 'lc_register_post_types' );
 
 /**
  * Flushes rewrite rules after registering custom post types.
@@ -54,8 +42,39 @@ add_action( 'init', 'cb_register_post_types' );
  * whenever the theme is switched, so that the custom post types
  * are correctly registered and accessible.
  */
-function cb_rewrite_flush() {
-	cb_register_post_types();
+function lc_rewrite_flush() {
+	lc_register_post_types();
     flush_rewrite_rules();
 }
-add_action( 'after_switch_theme', 'cb_rewrite_flush' );
+add_action( 'after_switch_theme', 'lc_rewrite_flush' );
+
+
+add_filter(
+	'acf/load_value/name=button_1',
+	function ( $value, $post_id, $field ) {
+		if ( empty( $value ) ) {
+			return array(
+				'url' => '/products/',
+				'title' => 'View Products',
+			);
+		}
+		return $value;
+	},
+	10,
+	3
+);
+
+add_filter(
+	'acf/load_value/name=button_2',
+	function ( $value, $post_id, $field ) {
+		if ( empty( $value ) ) {
+			return array(
+				'url' => '/contact-us/',
+				'title' => 'Contact Us',
+			);
+		}
+		return $value;
+	},
+	10,
+	3
+);

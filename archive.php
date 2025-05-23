@@ -5,8 +5,8 @@
  * This template is used to display archive pages for posts.
  *
  * @package WordPress
- * @subpackage lc-btg2025
- * @since lc-btg2025 1.0
+ * @subpackage lc-saialupack2025
+ * @since lc-saialupack2025 1.0
  */
 
 defined( 'ABSPATH' ) || exit;

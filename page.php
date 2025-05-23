@@ -3,7 +3,7 @@
  * Template Name: Custom Page Template
  * Description: A custom page template for the Valewood Bathrooms theme.
  *
- * @package lc-btg2025
+ * @package lc-saialupack2025
  */
 
 defined( 'ABSPATH' ) || exit;
