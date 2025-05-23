@@ -2,15 +2,17 @@
 :root {
   /* Colours */
   --col-dark: #0f0f0f;
-  --col-light: #ffffff;
   /* PRIMARY COLOURS */
-  --col-green-100: #d3ebe5;
-  --col-green-400: #45b8ac;
-  --col-green-700: #277b6c;
-  --col-green-900: #173f3d;
-  --col-grey-100: #efefef;
-  --col-grey-400: #d0d3d4;
-  --col-coral-400: #ff6b5e;
+  --hsl-plum: 325 40% 21%;
+  --col-plum: hsl(var(--hsl-plum));
+  --hsl-rose: 342 41% 76%;
+  --col-rose: hsl(var(--hsl-rose));
+  --hsl-cream: 38 42% 96%;
+  --col-cream: hsl(var(--hsl-cream));
+  --hsl-olive: 42 4% 36%;
+  --col-olive: hsl(var(--hsl-olive));
+  --hsl-gold: 39 87% 59%;
+  --col-gold: hsl(var(--hsl-gold));
   /* Font Sizes */
   --base-font-size: 16px;
   --fs-300: 0.8rem;
@@ -23,20 +25,19 @@
   --fs-800: clamp(2.5rem, 1.6vw + 1.5rem, 3.05rem);
   --fs-900: clamp(3.2rem, 2vw + 1.8rem, 3.8rem);
   /* Font Families */
-  --ff-body: "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  --ff-heading: "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --ff-body: "Montserrat", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --ff-heading: "Amarante", Georgia, "Times New Roman", serif;
   --ff-fa: "Font Awesome 6 Pro";
   /* Font Weights */
   --fw-400: 400;
-  --fw-600: 600;
+  --fw-500: 500;
   --fw-700: 700;
   /* Effects */
-  --transition: 150ms ease-out;
+  --transition: 250ms ease-out;
   /* Site General */
   --h-top: 83px;
   --h-top-desktop: 83px;
-  --border-sm: 0.5rem;
-  --border-lg: 1rem;
+  --border-radius: 0.5rem;
   --shadow-sm: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   --shadow-lg: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
   /* Spacing */

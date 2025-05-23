@@ -4,7 +4,7 @@
  *
  * This template is displayed when a user tries to access a page that does not exist.
  *
- * @package lc-saialupack2025
+ * @package lc-btg2025
  */
 
 defined( 'ABSPATH' ) || exit;

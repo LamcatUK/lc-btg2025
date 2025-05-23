@@ -2,11 +2,6 @@ header {
     background-color: white;
     transition: var(--transition);
 
-    .contact-info {
-        font-size: var(--fs-350);
-        font-weight: var(--fw-700);
-    }
-
     .navbar {
         border-bottom: 1px solid hsla(0 0% 80% / 1);
         transition: var(--transition);
@@ -14,10 +9,10 @@ header {
 
     a.nav-link {
         color: var(--col-primary-400);
-        font-size: var(--fs-350);
+        font-size: var(--fs-400);
         font-weight: var(--fw-700);
+        letter-spacing: 0.1em;
         text-transform: uppercase;
-        // letter-spacing: 0.05em;
         transition: var(--transition);
         padding-left: 2rem !important;
         padding-right: 2rem !important;
@@ -35,13 +30,13 @@ header {
     }
 
     .logo {
-        background-image: url(../img/sai-logo.svg);
+        background-image: url(../img/btg-logo-wide.png);
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
         display: inline-block;
-        aspect-ratio: 1246 / 181.5;
-        height: 25px;
+        aspect-ratio: 1815 / 542;
+        height: 80px;
         max-width: 100%;
     }
 

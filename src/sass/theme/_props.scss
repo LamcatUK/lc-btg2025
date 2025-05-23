@@ -7,19 +7,22 @@ $col-light: #f2f2f2;
     /* Colours */
 
     --col-dark: #0f0f0f;
-    --col-light: #ffffff;
 
     /* PRIMARY COLOURS */
+    --hsl-plum: 325 40% 21%; // deep plum
+    --col-plum: hsl(var(--hsl-plum));
 
-    --col-green-100: #d3ebe5; // very light and soft green
-    --col-green-400: #45b8ac; // original, cool but balanced
-    --col-green-700: #277b6c; // heading toward forest
-    --col-green-900: #173f3d; // original dark, cool green
+    --hsl-rose: 342 41% 76%; // soft rose
+    --col-rose: hsl(var(--hsl-rose));
 
-    --col-grey-100: #efefef;
-    --col-grey-400: #d0d3d4;
+    --hsl-cream: 38 42% 96%; // warm cream
+    --col-cream: hsl(var(--hsl-cream));
 
-    --col-coral-400: #ff6b5e;
+    --hsl-olive: 42 4% 36%; // olive grey
+    --col-olive: hsl(var(--hsl-olive));
+
+    --hsl-gold: 39 87% 59%; // amber gold
+    --col-gold: hsl(var(--hsl-gold));
 
     /* Font Sizes */
 
@@ -37,25 +40,24 @@ $col-light: #f2f2f2;
 
     /* Font Families */
 
-    --ff-body: 'Manrope', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --ff-heading: 'Manrope', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --ff-body: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --ff-heading: 'Amarante', Georgia, 'Times New Roman', serif;
     --ff-fa: 'Font Awesome 6 Pro';
 
     /* Font Weights */
 
     --fw-400: 400; // regular
-    --fw-600: 600; // medium (buttons, menu items)
+    --fw-500: 500; // medium (buttons, menu items)
     --fw-700: 700; // bold (headings)
 
     /* Effects */
-    --transition: 150ms ease-out;
+    --transition: 250ms ease-out;
 
     /* Site General */
     --h-top: 83px;
     --h-top-desktop: 83px;
 
-    --border-sm: 0.5rem;
-    --border-lg: 1rem;
+    --border-radius: 0.5rem;
 
     --shadow-sm: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
     --shadow-lg: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;

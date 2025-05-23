@@ -2,7 +2,7 @@
 /**
  * Block template for LC Contact.
  *
- * @package lc-saialupack2025
+ * @package lc-btg2025
  */
 
 defined( 'ABSPATH' ) || exit;

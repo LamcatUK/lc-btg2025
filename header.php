@@ -4,7 +4,7 @@
  *
  * Displays all of the <head> section and everything up till <div id="content">
  *
- * @package lc-saialupack2025
+ * @package lc-btg2025
  */
 
 // Exit if accessed directly.
@@ -19,13 +19,16 @@ session_start();
         charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1">
     <link rel="preload"
-        href="<?= esc_url( get_stylesheet_directory_uri() ); ?>/fonts/manrope-v15-latin-regular.woff2"
+        href="<?= esc_url( get_stylesheet_directory_uri() ); ?>/fonts/montserrat-v29-latin-regular.woff2"
         as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload"
-        href="<?= esc_url( get_stylesheet_directory_uri() ); ?>/fonts/manrope-v15-latin-600.woff2"
+        href="<?= esc_url( get_stylesheet_directory_uri() ); ?>/fonts/montserrat-v29-latin-500.woff2"
         as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload"
-        href="<?= esc_url( get_stylesheet_directory_uri() ); ?>/fonts/manrope-v15-latin-700.woff2"
+        href="<?= esc_url( get_stylesheet_directory_uri() ); ?>/fonts/montserrat-v29-latin-700.woff2"
+        as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload"
+        href="<?= esc_url( get_stylesheet_directory_uri() ); ?>/fonts/amarante-v28-latin-regular.woff2"
         as="font" type="font/woff2" crossorigin="anonymous">
     <?php
 	if ( ! is_user_logged_in() ) {
@@ -91,7 +94,7 @@ session_start();
     "@type": "HomeAndConstructionBusiness",
     "name": "Valewood Bathrooms",
     "url": "https://www.valewoodbathrooms.co.uk/",
-    "logo": "https://www.valewoodbathrooms.co.uk/wp-content/theme/lc-saialupack2025/img/valewood-logo.jpg",
+    "logo": "https://www.valewoodbathrooms.co.uk/wp-content/theme/lc-btg2025/img/valewood-logo.jpg",
     "description": "Valewood Bathrooms offers bespoke bathroom renovation, design, and installation services across West Sussex, tailored to your space and needs.",
     "address": {
         "@type": "PostalAddress",
@@ -186,44 +189,40 @@ session_start();
 	}
 	?>
 <header id="wrapper-navbar" class="fixed-top">
-        <nav id="main-nav" class="navbar navbar-expand-lg pb-0" aria-labelledby="main-nav-label">
-            <div class="container-xl">
-                <div class="d-flex justify-content-between w-100 w-lg-auto align-items-center">
-                    <!-- Logo -->
-                    <a href="/" class="logo"></a>
-
-                    <!-- Mobile Menu Toggle -->
-                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <i class="fal fa-bars"></i>
-                    </button>
-                </div>
-
-                <!-- Navbar Content (Now inside the same container-xl) -->
-                <div id="navbarContent" class="collapse navbar-collapse">
-                    <div class="w-100 d-flex flex-column justify-content-lg-between align-items-lg-center row-gap-2">
-                        <!-- Contact Details (Hidden on Mobile) -->
-                        <div class="contact-info d-none d-lg-flex gap-3 w-100 justify-content-end">
-                            <span><i class="fal fa-phone-alt"></i> <?= do_shortcode( '[contact_phone]' ); ?></span>
-                            <span><i class="fal fa-envelope"></i> <?= do_shortcode( '[contact_email]' ); ?></span>
-                        </div>
-
-                        <!-- Navigation -->
-                        <?php
-                        wp_nav_menu(
-                            array(
-                                'theme_location'  => 'primary_nav',
-                                'container'       => false,
-                                'menu_class'      => 'navbar-nav w-100 justify-content-end flex-wrap align-items-lg-center',
-                                'fallback_cb'     => '',
-                                'depth'           => 3,
-                                'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
-                            )
-                        );
-                        ?>
+    <nav id="main-nav" class="navbar navbar-expand-lg pb-0 position-relative" aria-labelledby="main-nav-label">
+        <div class="container-xl">
+            <div class="row w-100 gx-4">
+                <div class="col-6 order-1">
+                    <div class="logo-container">
+                        <a href="/" class="logo" aria-label="Behind The Grape Homepage"></a>
                     </div>
                 </div>
+                
+                <!-- div class="col-lg-6 order-3 order-lg-2">
+                    <div id="navbarContent" class="collapse navbar-collapse">
+                        <div class="w-100 d-flex flex-column justify-content-lg-between align-items-lg-center" style="row-gap:1rem">
+                            <div class="contact-info d-none d-lg-flex gap-3 w-100 justify-content-center">
+                            </div>
+                            <?php
+                            wp_nav_menu(
+                                array(
+                                    'theme_location' => 'primary_nav',
+                                    'container'      => false,
+                                    'menu_class'     => 'navbar-nav w-100 justify-content-center align-items-lg-center text-center pb-5 pb-lg-0',
+                                    'fallback_cb'    => '',
+                                    'depth'          => 3,
+                                    'walker'         => new Understrap_WP_Bootstrap_Navwalker(),
+                                )
+                            );
+                            ?>
+                        </div>
+                    </div>
+                </div -->
+
+                <div class="col-6 order-2 order-lg-3 d-flex justify-content-end align-items-center">
+                    <a href="/#register" class="button button--sm button-outline">Register for Updates</a>
+                </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>

@@ -2,7 +2,7 @@
 /**
  * The template for displaying search results pages
  *
- * @package lc-saialupack2025
+ * @package lc-btg2025
  */
 
 // Exit if accessed directly.

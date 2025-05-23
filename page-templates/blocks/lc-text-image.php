@@ -2,7 +2,7 @@
 /**
  * Block template for LC Text Image.
  *
- * @package lc-saialupack2025
+ * @package lc-btg2025
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -47,24 +47,13 @@ $image_aos = 'Text/Image' === $order_field ? 'fade-left' : 'fade-right';
 				<?php
 				if ( get_field( 'title' ) ?? null ) {
 					?>
-				<h2 class="section-heading--start mb-2">
+				<h2 class="h3 text--primary-500 section-heading--start">
 						<?= esc_html( get_field( 'title' ) ); ?>
 				</h2>
 				 	<?php
 				}
 				?>
 				<div><?= wp_kses_post( get_field( 'content' ) ); ?></div>
-				<?php
-				if ( get_field( 'cta' ) ?? null ) {
-					?>
-					<a href="<?= esc_url( get_field( 'cta' )['url'] ); ?>"
-						class="button button-primary align-self-start mt-3"
-						target="<?= esc_attr( get_field( 'cta' )['target'] ); ?>">
-						<?= esc_html( get_field( 'cta' )['title'] ); ?>
-					</a>
-					<?php
-				}
-				?>
 			</div>
 			<div
 				class="<?= esc_attr( trim( "$imgcolwidth $imgcol" ) ); ?> text_image__image"

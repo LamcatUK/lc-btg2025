@@ -135,23 +135,6 @@
             "delay": 0
         },
         {
-            "key": "field_68307e959e58f",
-            "label": "CTA",
-            "name": "cta",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "allow_in_bindings": 0
-        },
-        {
             "key": "field_67c02f32453aa",
             "label": "Image",
             "name": "image",
@@ -161,7 +144,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -196,5 +179,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1748008614
+    "modified": 1744050401
 }

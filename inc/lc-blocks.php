@@ -5,7 +5,7 @@
  * Author: Your Name
  * Theme: Valewood Bathrooms
  *
- * @package lc-saialupack2025
+ * @package lc-btg2025
  */
 
 /**
@@ -24,45 +24,11 @@ function acf_blocks() {
 
         acf_register_block_type(
             array(
-                'name'            => 'lc_product_search',
-                'title'           => __( 'LC Product Search' ),
+                'name'            => 'lc_teaser',
+                'title'           => __( 'LC Teaser' ),
                 'category'        => 'layout',
                 'icon'            => 'cover-image',
-                'render_template' => 'page-templates/blocks/lc-product-search.php',
-                'mode'            => 'edit',
-                'supports'        => array(
-                    'mode'      => false,
-                    'anchor'    => true,
-                    'className' => true,
-                    'align'     => true,
-                ),
-            )
-        );
-
-        acf_register_block_type(
-            array(
-                'name'            => 'lc_product_type_nav',
-                'title'           => __( 'LC Product Type Nav' ),
-                'category'        => 'layout',
-                'icon'            => 'cover-image',
-                'render_template' => 'page-templates/blocks/lc-product-type-nav.php',
-                'mode'            => 'edit',
-                'supports'        => array(
-                    'mode'      => false,
-                    'anchor'    => true,
-                    'className' => true,
-                    'align'     => true,
-                ),
-            )
-        );
-
-        acf_register_block_type(
-            array(
-                'name'            => 'lc_hero',
-                'title'           => __( 'LC Hero' ),
-                'category'        => 'layout',
-                'icon'            => 'cover-image',
-                'render_template' => 'page-templates/blocks/lc-hero.php',
+                'render_template' => 'page-templates/blocks/lc-teaser.php',
                 'mode'            => 'edit',
                 'supports'        => array(
                     'mode'      => false,
@@ -141,6 +107,23 @@ function acf_blocks() {
             )
         );
 
+        acf_register_block_type(
+            array(
+                'name'            => 'lc_home_hero',
+                'title'           => __( 'LC Home Hero' ),
+                'category'        => 'layout',
+                'icon'            => 'cover-image',
+                'render_template' => 'page-templates/blocks/lc-home-hero.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+                ),
+            )
+        );
+
     }
 }
 add_action( 'acf/init', 'acf_blocks' );
@@ -184,7 +167,7 @@ function modify_core_add_container( $attributes, $content ) {
 
 	ob_start();
 	?>
-	<div class="container">
+	<div class="container-xl">
 		<?php echo wp_kses_post( $content ); ?>
 	</div>
 	<?php
